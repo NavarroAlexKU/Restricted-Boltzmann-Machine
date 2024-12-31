@@ -83,4 +83,33 @@ Training is performed using **Contrastive Divergence (CD)**, which involves mult
 
 ---
 
+## Insights
+The model's performance on reconstruction can be evaluated by comparing the original ratings to the reconstructed ratings. In cases where the model had sufficient data to learn user preferences, it was able to accurately replicate the original ratings. This indicates that the RBM successfully captured patterns in the data for those scenarios.
+
+Below is a visualization comparing the original and reconstructed ratings for a sample user:
+![image](https://github.com/user-attachments/assets/72974a47-ac4c-419e-a526-3328c92aff2b)
+
+Let's See the Model's Movie Recommendations for a Random User
+```
+import random
+
+# Randomly select a valid user ID
+user_id = random.randint(0, nb_users - 1)  # Randomly pick a user between 0 and nb_users-1
+
+# Get the user's data from the training set
+v = training_set[user_id:user_id+1]
+_, h = rbm.sample_h(v)  # Sample hidden nodes
+_, v_reconstructed = rbm.sample_v(h)  # Reconstruct visible nodes
+
+# Get top-N recommendations
+N = 5
+recommended = v_reconstructed.numpy().argsort()[0][-N:][::-1]  # Top-N movies with highest predicted ratings
+print(f"Top-{N} Recommendations for User {user_id}: {recommended}")
+
+# Retrieve and display recommended movie details
+recommended_movies = movies.loc[movies[0].isin(recommended)]
+print(recommended_movies)
+```
+
+![image](https://github.com/user-attachments/assets/3ed51b5b-c8a3-4df6-8bef-de50a1b4633e)
 
