@@ -11,6 +11,7 @@ This project implements a **Restricted Boltzmann Machine (RBM)** for collaborati
 2. [Dataset](#dataset)
 3. [Model Architecture](#model-architecture)
 4. [RBM Overview](#rbm-review)
+5. [Insights](#insights)
 
 ---
 
