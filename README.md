@@ -10,9 +10,7 @@ This project implements a **Restricted Boltzmann Machine (RBM)** for collaborati
 1. [Project Overview](#project-overview)
 2. [Dataset](#dataset)
 3. [Model Architecture](#model-architecture)
-5. [Usage](#usage)
-6. [Results](#results)
-7. [References](#references)
+4. [RBM Overview](#rbm-review)
 
 ---
 
@@ -29,6 +27,27 @@ An RBM is a type of generative stochastic neural network that models the joint p
 - **Hidden Nodes**: Represent latent features of users and movies.
 
 ---
+
+## RBM Review
+
+### Visible Nodes:
+- Represent the **input layer** of the RBM.
+- Correspond to the **observed data** (e.g., user ratings or interactions).
+- Each node corresponds to a feature or variable in the data (e.g., a specific movie or product and whether a user has interacted with it, such as rating or purchasing it).
+
+### Hidden Nodes:
+- Represent the **latent (hidden) feature layer** of the RBM.
+- Capture patterns, relationships, or structures in the data that are **not directly observable**.
+- Help the RBM learn **abstract features** from the visible data.
+  - Example: A hidden node might detect that a user prefers a certain movie genre (e.g., action over comedy) or likes specific themes in products.
+
+### Lines in the RBM:
+- Represent the **weights** between visible and hidden nodes.
+- **Weights** are adjusted (learned) through a combination of:
+  1. **Energy-Based Models**:
+     - Assign probabilities to different configurations of visible and hidden nodes using an **energy function**.
+  2. **Contrastive Divergence (CD)**:
+     - An algorithm used to train the RBM by minimizing the difference between the observed and reconstructed data.
 
 ## Dataset
 
