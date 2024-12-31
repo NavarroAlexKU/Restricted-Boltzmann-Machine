@@ -83,9 +83,4 @@ Training is performed using **Contrastive Divergence (CD)**, which involves mult
 
 ---
 
-## Usage
 
-### Training
-Run the script to train the RBM:
-```bash
-python train_rbm.py
